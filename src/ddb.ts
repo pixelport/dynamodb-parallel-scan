@@ -2,7 +2,7 @@ import DynamoDB from 'aws-sdk/clients/dynamodb';
 import {DocumentClient} from 'aws-sdk/lib/dynamodb/document_client';
 import {InsertManyParams} from './ddb.types';
 
-const isTest = process.env.JEST_WORKER_ID;
+const isTest = process.env.RUNS_PARALLEL_SCAN_TEST;
 const config = {
   convertEmptyValues: true,
   ...(isTest && {endpoint: 'localhost:8000', sslEnabled: false, region: 'local-env'}),
